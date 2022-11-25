@@ -146,7 +146,7 @@ class RoundingToggleSwitch @JvmOverloads constructor(
         binding.clRoot.background = drawable
     }
 
-    fun clickVerticalSwitch() {
+    fun clickRoundingSwitch() {
         moveIndicator()
         currentPosition = if (currentPosition == SwitchPosition.LEFT) {
             SwitchPosition.RIGHT

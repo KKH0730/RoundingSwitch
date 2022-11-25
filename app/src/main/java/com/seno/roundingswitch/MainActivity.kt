@@ -15,6 +15,8 @@ class MainActivity : AppCompatActivity() {
 
 
         binding?.roundingSwitch?.apply {
+            duration = 100
+            activeAnimation = true
             leftImageResource = R.drawable.ic_alarm_on
             rightImageResource = R.drawable.ic_alarm_off
             indicatorColor = getColor(R.color.teal_200)
@@ -23,7 +25,7 @@ class MainActivity : AppCompatActivity() {
             sideMargin = 10f
             onSwitchToggleListener = object: RoundingToggleSwitch.OnSwitchToggleListener {
                 override fun onToggled(position: RoundingToggleSwitch.SwitchPosition) {
-
+                    // do something...
                 }
             }
         }

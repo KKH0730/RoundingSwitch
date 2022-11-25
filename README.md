@@ -5,8 +5,6 @@ A simple toggle switch library
 # Design
 All disign by myself
 
-![refresh_layout](https://user-images.githubusercontent.com/66052075/104601438-98f60600-56bd-11eb-9926-df5e720a8d92.gif)
-
 
 
 # Dependency   

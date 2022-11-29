@@ -24,7 +24,7 @@ allprojects {
 
 - App build.gradle
 ```
-implementation 'com.github.KKH0730:RoundingSwitch:1.0'
+implementation 'io.github.KKH0730:RoundingSwitch:0.0.1'
 ```
 
 

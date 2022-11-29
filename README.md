@@ -59,7 +59,7 @@ You have to surround layout
             indicatorColor = getColor(R.color.white)
             selectedTintColor = getColor(R.color.color_FF000000)
             unSelectedTintColor = getColor(R.color.color_FFADB5BD)
-            setBackground(getColor(R.color.color_FF495057))
+            setBackground(color = getColor(R.color.color_FF495057), backgroundRadius = 50f)
             sideMargin = 10f
             onSwitchToggleListener = object: RoundingToggleSwitch.OnSwitchToggleListener {
                 override fun onToggled(position: RoundingToggleSwitch.SwitchPosition) {

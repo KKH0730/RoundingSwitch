@@ -52,9 +52,10 @@ You have to surround layout
             activeAnimation = true
             leftImageResource = R.drawable.ic_alarm_on
             rightImageResource = R.drawable.ic_alarm_off
-            indicatorColor = getColor(R.color.teal_200)
-            selectedTintColor = getColor(R.color.purple_500)
-            unSelectedTintColor = getColor(R.color.purple_200)
+            indicatorColor = getColor(R.color.white)
+            selectedTintColor = getColor(R.color.color_FF000000)
+            unSelectedTintColor = getColor(R.color.color_FFADB5BD)
+            setBackground(getColor(R.color.color_FF495057))
             sideMargin = 10f
             onSwitchToggleListener = object: RoundingToggleSwitch.OnSwitchToggleListener {
                 override fun onToggled(position: RoundingToggleSwitch.SwitchPosition) {

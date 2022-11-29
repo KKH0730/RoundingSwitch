@@ -17,7 +17,7 @@ All disign by myself
 allprojects {
 		repositories {
 			...
-			maven { url 'https://jitpack.io' }
+			mavenCentral()
 		}
 	}
 ```

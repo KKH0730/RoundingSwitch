@@ -1,3 +1,6 @@
+![rounding_switch](https://user-images.githubusercontent.com/66052075/204448587-8357aeba-9077-484b-98e7-7847e5770bc5.gif)
+
+
 # RoundingSwitch
 A simple toggle switch library   
 

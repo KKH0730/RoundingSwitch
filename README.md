@@ -1,4 +1,5 @@
-![rounding_switch](https://user-images.githubusercontent.com/66052075/204448587-8357aeba-9077-484b-98e7-7847e5770bc5.gif)
+![rounding_switch](https://user-images.githubusercontent.com/66052075/204449881-1ae3d6d4-4fd4-4c96-a4d5-2480c7064a61.gif)
+
 
 
 # RoundingSwitch

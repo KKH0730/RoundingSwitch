@@ -1,3 +1,7 @@
+![rounding_switch](https://user-images.githubusercontent.com/66052075/204449881-1ae3d6d4-4fd4-4c96-a4d5-2480c7064a61.gif)
+
+
+
 # RoundingSwitch
 A simple toggle switch library   
 
@@ -52,9 +56,10 @@ You have to surround layout
             activeAnimation = true
             leftImageResource = R.drawable.ic_alarm_on
             rightImageResource = R.drawable.ic_alarm_off
-            indicatorColor = getColor(R.color.teal_200)
-            selectedTintColor = getColor(R.color.purple_500)
-            unSelectedTintColor = getColor(R.color.purple_200)
+            indicatorColor = getColor(R.color.white)
+            selectedTintColor = getColor(R.color.color_FF000000)
+            unSelectedTintColor = getColor(R.color.color_FFADB5BD)
+            setBackground(color = getColor(R.color.color_FF495057), backgroundRadius = 50f)
             sideMargin = 10f
             onSwitchToggleListener = object: RoundingToggleSwitch.OnSwitchToggleListener {
                 override fun onToggled(position: RoundingToggleSwitch.SwitchPosition) {

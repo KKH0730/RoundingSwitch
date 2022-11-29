@@ -15,8 +15,7 @@ All disign by myself
 - project build.gradle
 ```
 repositories {
-	...
-	mavenCentral()
+    mavenCentral()
 }
 ```
 

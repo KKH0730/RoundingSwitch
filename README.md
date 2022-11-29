@@ -14,12 +14,10 @@ All disign by myself
 # Dependency   
 - project build.gradle
 ```
-allprojects {
-		repositories {
-			...
-			mavenCentral()
-		}
-	}
+repositories {
+	...
+	mavenCentral()
+}
 ```
 
 - App build.gradle

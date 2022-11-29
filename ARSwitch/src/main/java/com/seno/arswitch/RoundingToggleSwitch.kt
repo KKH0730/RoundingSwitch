@@ -27,31 +27,48 @@ class RoundingToggleSwitch @JvmOverloads constructor(
     var onSwitchToggleListener: OnSwitchToggleListener? = null
 
     var currentPosition: SwitchPosition = SwitchPosition.LEFT
-    set(value) {
-        if (field == value) {
-            return
-        }
+        set(value) {
+            if (field == value) {
+                return
+            }
 
-        if (value == SwitchPosition.LEFT) {
-            binding.ivLeft.setColorFilter(selectedTintColor)
-            binding.ivRight.setColorFilter(unSelectedTintColor)
-        } else {
-            binding.ivLeft.setColorFilter(unSelectedTintColor)
-            binding.ivRight.setColorFilter(selectedTintColor)
-        }
+            if (value == SwitchPosition.LEFT) {
+                selectedTintColor?.let {
+                    binding.ivLeft.setColorFilter(it)
+                } ?: run {
+                    binding.ivLeft.colorFilter = null
+                }
 
-        field = value
-    }
+                unSelectedTintColor?.let {
+                    binding.ivRight.setColorFilter(it)
+                } ?: run {
+                    binding.ivRight.colorFilter = null
+                }
+            } else {
+                unSelectedTintColor?.let {
+                    binding.ivLeft.setColorFilter(it)
+                } ?: run {
+                    binding.ivLeft.colorFilter = null
+                }
+
+                selectedTintColor?.let {
+                    binding.ivRight.setColorFilter(it)
+                } ?: run {
+                    binding.ivRight.colorFilter = null
+                }
+            }
+
+            field = value
+        }
 
     var indicatorColor: Int = context.getColor(R.color.color_FFFFFFFF)
-    set(value) {
-        binding.ivIndicator.background = drawCircle(color = value)
-        field = value
-    }
+        set(value) {
+            binding.ivIndicator.background = drawCircle(color = value)
+            field = value
+        }
 
     var sideMargin: Float = 10f
         set(value) {
-
             val leftParams = (binding.ivLeft.layoutParams as ConstraintLayout.LayoutParams).apply {
                 setMargins(value.dpToPx(resources = resources), 0, 0, 0)
             }
@@ -64,21 +81,39 @@ class RoundingToggleSwitch @JvmOverloads constructor(
             field = value
         }
 
-    var selectedTintColor: Int = context.getColor(R.color.color_FF000000)
-    set(value) {
-        if (currentPosition == SwitchPosition.LEFT) {
-            binding.ivLeft.setColorFilter(value)
-        } else {
-            binding.ivRight.setColorFilter(value)
-        }
-      field = value
-    }
-    var unSelectedTintColor: Int = context.getColor(R.color.color_FFADB5BD)
+    var selectedTintColor: Int? = null
         set(value) {
             if (currentPosition == SwitchPosition.LEFT) {
-                binding.ivRight.setColorFilter(value)
+                value?.let {
+                    binding.ivLeft.setColorFilter(it)
+                } ?: run {
+                    binding.ivLeft.colorFilter = null
+                }
             } else {
-                binding.ivLeft.setColorFilter(value)
+                value?.let {
+                    binding.ivRight.setColorFilter(it)
+
+                } ?: run {
+                    binding.ivRight.colorFilter = null
+                }
+            }
+
+            field = value
+        }
+    var unSelectedTintColor: Int? = null
+        set(value) {
+            if (currentPosition == SwitchPosition.LEFT) {
+                value?.let {
+                    binding.ivRight.setColorFilter(it)
+                } ?: run {
+                    binding.ivRight.colorFilter = null
+                }
+            } else {
+                value?.let {
+                    binding.ivLeft.setColorFilter(it)
+                } ?: run {
+                    binding.ivLeft.colorFilter = null
+                }
             }
             field = value
         }
@@ -100,9 +135,9 @@ class RoundingToggleSwitch @JvmOverloads constructor(
     @DrawableRes
     var leftImageResource: Int = 0
         set(value) {
-        binding.ivLeft.setImageResource(value)
-        field = value
-    }
+            binding.ivLeft.setImageResource(value)
+            field = value
+        }
 
     @DrawableRes
     var rightImageResource: Int = 0
@@ -124,9 +159,9 @@ class RoundingToggleSwitch @JvmOverloads constructor(
     }
 
     @SuppressLint("ResourceAsColor")
-    private fun setBackground(
-        @SuppressLint("ResourceType") @ColorRes color: Int = context.getColor(R.color.color_FFADB5BD),
-        backgroundRadius: Float = 50f
+    fun setBackground(
+        color: Int = context.getColor(R.color.color_FFADB5BD),
+        backgroundRadius: Float = 50f,
     ) {
         val drawable = ShapeDrawable(
             RoundRectShape(

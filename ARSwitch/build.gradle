@@ -3,6 +3,29 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+ext {
+    PUBLISH_GROUP_ID = 'io.github.KKH0730'
+    PUBLISH_VERSION = '0.0.2'
+    PUBLISH_ARTIFACT_ID = 'RoundingSwitch'
+    PUBLISH_DESCRIPTION = 'RoundingSwitch Android Library'
+    PUBLISH_URL = 'https://github.com/KKH0730/RoundingSwitch'
+    PUBLISH_LICENSE_NAME = 'Apache License'
+    PUBLISH_LICENSE_URL =
+            'https://github.com/KKH0730/RoundingSwitch/blob/main/LICENSE'
+    PUBLISH_DEVELOPER_ID = 'mari'
+    PUBLISH_DEVELOPER_NAME = 'KyungHo, Kim'
+    PUBLISH_DEVELOPER_EMAIL = 'bravery712@gmail.com'
+    PUBLISH_SCM_CONNECTION =
+            'scm:git:github.com/KKH0730/RoundingSwitch.git'
+    PUBLISH_SCM_DEVELOPER_CONNECTION =
+            'scm:git:ssh://github.com/KKH0730/RoundingSwitch.git'
+    PUBLISH_SCM_URL =
+            'https://github.com/KKH0730/RoundingSwitch/tree/main'
+}
+
+apply from: "${rootProject.projectDir}/scripts/publish-module.gradle"
+
+
 android {
     compileSdk 32
 
@@ -26,11 +49,16 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+        freeCompilerArgs += ["-Xopt-in=kotlin.RequiresOptIn"]
     }
 
     buildFeatures {
         viewBinding = true
         dataBinding = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_version
     }
 }
 
